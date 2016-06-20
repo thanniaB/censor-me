@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,7 +23,6 @@ public class PlayerController : MonoBehaviour
 	private float timeLeft;
     private InputController inputController;
     private GameController gameController;
-    private int coins;
     private AudioManager audioManager;
 
     // Use this for initialization
@@ -49,8 +47,8 @@ public class PlayerController : MonoBehaviour
 		isGrounded = Physics2D.IsTouchingLayers (groundDetector, whatIsGround);
 		myAnimator.SetBool ("isJumping", !isGrounded);
 
-		// Jump
-		if ((Input.GetKeyDown(KeyCode.Z) || inputController.IsJumping()) && isGrounded)
+        // Jump
+        if ((Input.GetKeyDown(KeyCode.Z) || inputController.IsJumping()) && isGrounded)
 		{
 			myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpForce);
 		}
@@ -63,7 +61,7 @@ public class PlayerController : MonoBehaviour
             audioManager.PlayShootSFX();
         }
 
-        // release sooter
+        // release shooter
         if (!inputController.IsShooting()) {
             canShoot = true;
         }
@@ -76,22 +74,18 @@ public class PlayerController : MonoBehaviour
 		if (collider.gameObject.layer == 11 || collider.gameObject.layer == 12) {
 			Die ();
 		} else if (collider.gameObject.layer == 13) {
-            coins++;
+            gameController.AddCoin();
             Destroy(collider.gameObject);
             audioManager.PlayCoinSFX();
         }
     }
 
 	void Die() {
-		// basically restart the scene
-		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
-	}
+        gameController.GameOver();
+        gameObject.SetActive(false);
+    }
 
 	public float GetWidth() {
 		return GetComponent<Renderer>().bounds.size.x;
 	}
-
-    public int GetCoins() {
-        return coins;
-    }
 }

@@ -6,6 +6,12 @@ public class PlatformGenerator : MonoBehaviour {
 	private GameObject[] basePlatforms;
 	[SerializeField]
 	private float distanceBetween;
+    [SerializeField]
+    private bool increaseDistanceBetween;
+    [SerializeField]
+    private bool randomizeDistanceBetween;
+    [SerializeField]
+    private GameController gameController;
 
 	private GameObject oldPlatform;
 	private float minY, maxY, lastYUsed, initialY = -5f;
@@ -20,17 +26,27 @@ public class PlatformGenerator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float ocuppiedSpaceBoundary = oldPlatform.transform.position.x +
-			oldPlatform.GetComponent<Renderer> ().bounds.size.x +
-			distanceBetween;
-		Vector2 max = UnityEngine.Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
+        float ocuppiedSpaceBoundary = oldPlatform.transform.position.x +
+            oldPlatform.GetComponent<Collider2D> ().bounds.size.x +
+            distanceBetween;
 
-		if (ocuppiedSpaceBoundary < max.x) {
+        if (increaseDistanceBetween) {
+            float upperLimit = gameController.GameSpeed() / 3;
+            if (randomizeDistanceBetween) {
+                ocuppiedSpaceBoundary += Random.Range(0, upperLimit);
+            } else {
+                ocuppiedSpaceBoundary += upperLimit;
+            }
+        }
+
+        Vector2 max = UnityEngine.Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
+
+		if (ocuppiedSpaceBoundary - 10 < max.x) {
 			float newY = lastYUsed + Random.Range (-1, 2) * 3;
 			if (newY < minY || newY > maxY) {
 				newY = lastYUsed;
 			}
-			oldPlatform = CreatePlatform (ocuppiedSpaceBoundary, newY);
+			oldPlatform = CreatePlatform(ocuppiedSpaceBoundary, newY);
 			lastYUsed = newY;
 		}
 	}

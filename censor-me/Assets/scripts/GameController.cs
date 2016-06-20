@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : Timer {
     [SerializeField]
@@ -7,14 +8,18 @@ public class GameController : Timer {
     private float gameSpeedStep = 2f;
     [SerializeField]
     private GameObject pauseCanvas;
+    [SerializeField]
+    private GameObject gameOverCanvas;
 
     private float gameSpeed;
     public bool hasGameStarted { get; set; }
     public bool isGameOver { get; set; }
     private AudioManager audioManager;
+    private int coins;
 
     // Use this for initialization
     override public void Start() {
+        gameOverCanvas.SetActive(false);
         // if coming from pause
         pauseCanvas.SetActive(false);
         Time.timeScale = 1;
@@ -59,5 +64,23 @@ public class GameController : Timer {
     public void MenuClickSFX() {
         audioManager.PlayMenuSFX();
         audioManager.ToggleMute();
+    }
+
+    public void AddCoin() {
+        coins++;
+    }
+
+    public int Coins() {
+        return coins;
+    }
+
+    public void GameOver() {
+        //gameOverCanvas.SetActive(true);
+        hasGameStarted = false;
+        gameOverCanvas.GetComponent<ScoreAnimation>().PlayAnimation();
+    }
+
+    public void Restart() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

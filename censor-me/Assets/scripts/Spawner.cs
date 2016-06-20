@@ -7,7 +7,7 @@ public class Spawner : Timer {
 	[SerializeField]
 	private float delay;
     [SerializeField]
-    private AudioManager audioManager;
+    private GameController gameController;
 
     public override void Start () {
 		timeOut = delay;
@@ -15,8 +15,10 @@ public class Spawner : Timer {
 	}
 	
 	public override void Callback () {
-		Vector2 max = UnityEngine.Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
-		CreateEnemy (max.x, max.y, 0.5f);
+        if (gameController.hasGameStarted) {
+            Vector2 max = UnityEngine.Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
+            CreateEnemy(max.x, max.y, 0.5f);
+        }
 	}
 
 	private GameObject CreateEnemy() {

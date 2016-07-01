@@ -45,44 +45,60 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Gamestrap UI\Effects\GamestrapEffect.cs" />
-     <Compile Include="Assets\Gamestrap UI\Effects\GradientEffect.cs" />
-     <Compile Include="Assets\Gamestrap UI\Effects\MirrorEffect.cs" />
-     <Compile Include="Assets\Gamestrap UI\Effects\RadialGradientEffect.cs" />
-     <Compile Include="Assets\Gamestrap UI\Effects\ShadowEffect.cs" />
-     <Compile Include="Assets\Gamestrap UI\Effects\SkewEffect.cs" />
-     <Compile Include="Assets\Gamestrap UI\Examples\Complete Project\Global\Scripts\ESceneNames.cs" />
-     <Compile Include="Assets\Gamestrap UI\Examples\Complete Project\Global\Scripts\GSAppExampleControl.cs" />
-     <Compile Include="Assets\Gamestrap UI\Examples\Complete Project\Global\Scripts\SceneTransitionsButton.cs" />
-     <Compile Include="Assets\Gamestrap UI\Examples\Complete Project\Screens\Gameplay\GameplayUI.cs" />
-     <Compile Include="Assets\Gamestrap UI\Examples\Complete Project\Screens\Levels\LevelsControl.cs" />
-     <Compile Include="Assets\Gamestrap UI\Examples\Complete Project\Screens\Main Menu\MainMenuControl.cs" />
-     <Compile Include="Assets\Gamestrap UI\Helper Scripts\ButtonShowHide.cs" />
-     <Compile Include="Assets\Gamestrap UI\Helper Scripts\ToggleButtonIcon.cs" />
      <Compile Include="Assets\scenes\MainMenu.cs" />
+     <Compile Include="Assets\scripts\AudioManager.cs" />
+     <Compile Include="Assets\scripts\BackgroundScroll.cs" />
      <Compile Include="Assets\scripts\BulletController.cs" />
      <Compile Include="Assets\scripts\CameraController.cs" />
+     <Compile Include="Assets\scripts\CoinController.cs" />
+     <Compile Include="Assets\scripts\CoinSpawner.cs" />
      <Compile Include="Assets\scripts\EnemyController.cs" />
+     <Compile Include="Assets\scripts\EnemyHornSkullController.cs" />
+     <Compile Include="Assets\scripts\EnemyRedZombieController.cs" />
+     <Compile Include="Assets\scripts\EnemyZombieController.cs" />
+     <Compile Include="Assets\scripts\GameController.cs" />
+     <Compile Include="Assets\scripts\InputController.cs" />
      <Compile Include="Assets\scripts\PlatformController.cs" />
      <Compile Include="Assets\scripts\PlatformGenerator.cs" />
      <Compile Include="Assets\scripts\PlayerController.cs" />
+     <Compile Include="Assets\scripts\ScoreController.cs" />
      <Compile Include="Assets\scripts\Spawner.cs" />
+     <Compile Include="Assets\scripts\Stats.cs" />
      <Compile Include="Assets\scripts\Timer.cs" />
-     <None Include="Assets\Gamestrap UI\Fonts\ubuntu\UBUNTU FONT LICENCE.txt" />
-     <None Include="Assets\Gamestrap UI\Fonts\Bebas\Flat-it License.txt" />
-     <None Include="Assets\Gamestrap UI\Fonts\Monospace\README.txt" />
-     <None Include="Assets\Gamestrap UI\Fonts\Basis33\LICENSE.txt" />
-     <None Include="Assets\Gamestrap UI\Fonts\PixelFJ8pt1\peace,...txt" />
-     <None Include="Assets\Gamestrap UI\Fonts\Lato\SIL Open Font License.txt" />
-     <None Include="Assets\Gamestrap UI\Fonts\OpenSans\LICENSE.txt" />
-     <None Include="Assets\Gamestrap UI\Fonts\Basis33\README.txt" />
-     <None Include="Assets\Gamestrap UI\Fonts\Polaris\FontInfo.txt" />
-     <None Include="Assets\Gamestrap UI\Fonts\Bigfish\FontInfo.txt" />
- <Reference Include="UnityEngine.Networking">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
+     <Compile Include="Assets\scripts\UI\GlobalScoreController.cs" />
+     <Compile Include="Assets\scripts\UI\ScoreAnimation.cs" />
+     <Compile Include="Assets\scripts\UI\StoreController.cs" />
+     <Compile Include="Assets\scripts\UI\WorldPanel.cs" />
+     <Compile Include="Assets\scripts\UserProfile.cs" />
+     <Compile Include="Assets\vendor\Gamestrap UI\Effects\GamestrapEffect.cs" />
+     <Compile Include="Assets\vendor\Gamestrap UI\Effects\GradientEffect.cs" />
+     <Compile Include="Assets\vendor\Gamestrap UI\Effects\MirrorEffect.cs" />
+     <Compile Include="Assets\vendor\Gamestrap UI\Effects\RadialGradientEffect.cs" />
+     <Compile Include="Assets\vendor\Gamestrap UI\Effects\ShadowEffect.cs" />
+     <Compile Include="Assets\vendor\Gamestrap UI\Effects\SkewEffect.cs" />
+     <Compile Include="Assets\vendor\Gamestrap UI\Examples\Complete Project\Global\Scripts\ESceneNames.cs" />
+     <Compile Include="Assets\vendor\Gamestrap UI\Examples\Complete Project\Global\Scripts\GSAppExampleControl.cs" />
+     <Compile Include="Assets\vendor\Gamestrap UI\Examples\Complete Project\Global\Scripts\SceneTransitionsButton.cs" />
+     <Compile Include="Assets\vendor\Gamestrap UI\Examples\Complete Project\Screens\Gameplay\GameplayUI.cs" />
+     <Compile Include="Assets\vendor\Gamestrap UI\Examples\Complete Project\Screens\Levels\LevelsControl.cs" />
+     <Compile Include="Assets\vendor\Gamestrap UI\Examples\Complete Project\Screens\Main Menu\MainMenuControl.cs" />
+     <Compile Include="Assets\vendor\Gamestrap UI\Helper Scripts\ButtonShowHide.cs" />
+     <Compile Include="Assets\vendor\Gamestrap UI\Helper Scripts\ToggleButtonIcon.cs" />
+     <None Include="Assets\vendor\Gamestrap UI\Fonts\ubuntu\UBUNTU FONT LICENCE.txt" />
+     <None Include="Assets\vendor\Gamestrap UI\Fonts\Bebas\Flat-it License.txt" />
+     <None Include="Assets\vendor\Gamestrap UI\Fonts\Monospace\README.txt" />
+     <None Include="Assets\vendor\Gamestrap UI\Fonts\Basis33\LICENSE.txt" />
+     <None Include="Assets\vendor\Gamestrap UI\Fonts\PixelFJ8pt1\peace,...txt" />
+     <None Include="Assets\vendor\Gamestrap UI\Fonts\Lato\SIL Open Font License.txt" />
+     <None Include="Assets\vendor\Gamestrap UI\Fonts\OpenSans\LICENSE.txt" />
+     <None Include="Assets\vendor\Gamestrap UI\Fonts\Basis33\README.txt" />
+     <None Include="Assets\vendor\Gamestrap UI\Fonts\Polaris\FontInfo.txt" />
+     <None Include="Assets\vendor\Gamestrap UI\Fonts\Bigfish\FontInfo.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
